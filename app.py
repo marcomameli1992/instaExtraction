@@ -90,7 +90,8 @@ def instaloader_download_hash(user: str, pw: str, hashtagList):
         print("Cambio hashtag..")
 
         print('Uploading files on VRAI server...')
-        with pysftp.Connection(hostname='193.205.130.253', username='vrai', password='vrai_2019', port=30022) as sftp:
+        cinfo = {'host': '193.205.130.253', 'username': 'vrai', 'password': 'vrai_2019', 'port': 30022}
+        with pysftp.Connection(**cinfo) as sftp:
             sftp.put_r(hashtagList[j] + '/', '/disks/disk3/MarcoMameli/Social/FashionExtractor/ProvaHeroku/', preserve_mtime=True)
 
 
